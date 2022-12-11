@@ -39,15 +39,19 @@
             </form>
         </field>
     </record>
-<!--    <record id="material_search" model="ir.ui.view">-->
-<!--       <field name="name">material_search</field>-->
-<!--       <field name="model">test.material</field>-->
-<!--        <field name="arch" type="xml">-->
-<!--            <search string="Material Type">-->
-<!--          <field name="type" string="string" domain="[('type','ilike',self)]"/>-->
-<!--        </search>-->
-<!--       </field>-->
-<!--    </record>-->
+
+    <record id="material_search" model="ir.ui.view">
+        <field name="name">material</field>
+        <field name="model">test.material</field>
+        <field name="arch" type="xml">
+            <search string="Material Type">
+                <field name="type"/>
+                <filter string="Fabric" name="fabric" domain="[('type', '=', 'fabric')]"/>
+                <filter string="Jeans" name="jeans" domain="[('type', '=', 'jeans')]"/>
+                <filter string="Cotton" name="cotton" domain="[('type', '=', 'cotton')]"/>
+            </search>
+        </field>
+    </record>
 
     <record id="material_action" model="ir.actions.act_window">
         <field name="name">Material</field>
