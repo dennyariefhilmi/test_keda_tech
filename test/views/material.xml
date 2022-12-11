@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="material_view_tree" model="ir.ui.view">
+        <field name="name">material_view_tree</field>
+        <field name="model">test.material</field>
+        <field name="arch" type="xml">
+            <tree string="material_tree">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="type"/>
+                <field name="buy_price"/>
+                <field name="supplier"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="material_view_form" model="ir.ui.view">
+        <field name="name">material_view_form</field>
+        <field name="model">test.material</field>
+        <field name="arch" type="xml">
+            <form string="material_form">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="code"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="buy_price"/>
+                        </group>
+                        <group>
+                            <field name="type"/>
+                            <field name="supplier"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+<!--    <record id="material_search" model="ir.ui.view">-->
+<!--       <field name="name">material_search</field>-->
+<!--       <field name="model">test.material</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <search string="Material Type">-->
+<!--          <field name="type" string="string" domain="[('type','ilike',self)]"/>-->
+<!--        </search>-->
+<!--       </field>-->
+<!--    </record>-->
+
+    <record id="material_action" model="ir.actions.act_window">
+        <field name="name">Material</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">test.material</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="material_categ"
+              name="Material"
+              parent="material_root"
+              action="material_action"
+              sequence="10"/>
+</odoo>
